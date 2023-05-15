@@ -1,38 +1,29 @@
 <?php 
-// echo "La tâche : ".$_POST['task'];
-
 // Connexion à la base de données
 try {
     $db = new PDO(
         'mysql:host=localhost;dbname=todo;charset=utf8',
-        'root',
-        '',
+        'utilisateur',
+        'motdepasse',
         [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ]
     );
 
-    $requete = "INSERT INTO todo(task_todo) VALUES(:task)";
+    $requete = "DELETE FROM todo WHERE id = :id";
 
     $data = $db->prepare($requete);
 
     $data->execute(array(
-        "task" => $_POST['task']
-    ));
+        "id" => $_GET['id']
+    ));  
 
-    if($data->rowCount() == 1){
-        echo "Tâche ajoutée";
-    } else {
-        echo "Erreur";
-    }
+    header('Content-Type: application/json');
+    echo json_encode("La tache a été supprimée");
 
 } catch (Exception $e) {
     echo "Connexion refusée à la base de données";
     exit();
 }
-
-// Préparation de la requête
-
-// Execution de la requête
 
 ?>
