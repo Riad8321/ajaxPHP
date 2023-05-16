@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Blog en temps réel</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <section id="post-section">
+        <h1>Blog en temps réel</h1>
+        <form id="post-form">
+            <input type="text" id="post-title" placeholder="Titre du post" required>
+            <textarea id="post-content" placeholder="Contenu du post" required></textarea>
+            <button type="submit" id="submit">Publier</button>
+        </form>
+        <section id="posts">
+            <!-- Les posts seront injectés ici par JavaScript -->
+            <article class="post">
+                <h2 class="post-title">Titre du post</h2>
+                <p class="post-date">Date du post</p>
+                <p class="post-content">Extrait du post...</p>
+                <button class="view-more">Voir plus</button>
+                <button class="like-post">Like</button>
+                <p class="like-count">0 likes</p>
+                <div class="comments-section">
+                    <div class="comment">
+                        <p class="comment-author">Auteur du commentaire</p>
+                        <p class="comment-date">Date du commentaire</p>
+                        <p class="comment-content">Contenu du commentaire...</p>
+                    </div>
+
+                    <div class="comment">
+                        <p class="comment-author">Auteur du commentaire</p>
+                        <p class="comment-date">Date du commentaire</p>
+                        <p class="comment-content">Contenu du commentaire...</p>
+                    </div>
+                </div>
+                <form class="comment-form">
+                    <textarea placeholder="Ajoutez un commentaire" required></textarea>
+                    <button type="submit">Publier le commentaire</button>
+                </form>
+            </article>
+            
+        </section>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
